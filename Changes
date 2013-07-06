@@ -1,4 +1,7 @@
 Revision history for Perl extension Config::CmdRC
 
+0.02    Sat Jul  6 11:09:31 JST 2013
+        - sorted directories for searching
+
 0.01    Sat Jul  6 10:29:32 JST 2013
         - original version
