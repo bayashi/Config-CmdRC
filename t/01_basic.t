@@ -2,10 +2,9 @@ use strict;
 use warnings;
 use Test::More;
 
-use Config::CmdRC;
+use Config::CmdRC ('share/.foorc');
 
-can_ok 'Config::CmdRC', qw/new/;
-
-# write more tests
+is RC->{bar}, 'baz';
+is RC->{qux}, 123;
 
 done_testing;
