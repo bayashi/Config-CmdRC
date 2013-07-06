@@ -11,14 +11,14 @@ our $RC;
 
 our $RC_DIRS = ($^O =~ m!Win32!) ? [
     # TODO: better windows support
-    $ENV{HOME},
     $ENV{CMDRC_DIR},
+    $ENV{HOME},
 ] : [
     # TODO: Are these common configuration directories?
-    '/etc',
-    $ENV{HOME},
+    '.',
     $ENV{CMDRC_DIR},
-    '.'
+    $ENV{HOME},
+    '/etc',
 ];
 
 sub import {
@@ -108,10 +108,10 @@ If you just only use C<Config::CmdRC> with C<rcfile name>, you can get configure
 
 By default, C<Config::CmdRC> searches a configuration file in below directories(for UNIX/Linux).
 
-    /etc
-    $ENV{HOME}
-    $ENV{CMDRC_DIR}
     .
+    $ENV{CMDRC_DIR}
+    $ENV{HOME}
+    /etc
 
 And then, your specified directories will be searched.
 
