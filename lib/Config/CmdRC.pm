@@ -37,7 +37,7 @@ sub import {
 sub read {
     my $self = shift;
 
-    my ($file, $dir) = _get_args(@_);
+    my ($file, $dir, $loader) = _get_args(@_);
 
     my %hash;
     for my $d ( @{_array($dir)}, @{$RC_DIRS} ) {
@@ -45,8 +45,8 @@ sub read {
         for my $f ( @{_array($file)} ) {
             my $path = File::Spec->catfile($d, $f);
             if (-d $d && -e $path) {
-                my $config = Config::Simple->new($path);
-                %hash = %{ merge(\%hash, +{ $config->vars }) };
+                my $config = $loader->($path);
+                %hash = %{ merge(\%hash, $config) };
             }
         }
     }
@@ -55,7 +55,7 @@ sub read {
 }
 
 sub _get_args {
-    my ($file, $dir);
+    my ($file, $dir, $loader);
     if (@_ == 1) {
         $file = shift;
     }
@@ -63,9 +63,16 @@ sub _get_args {
         my %arg = @_;
         $file = $arg{file} || []; # TODO: Is default file name needed?
         $dir  = $arg{dir}  || [];
+        $loader = $arg{loader};
     }
 
-    return($file, $dir);
+    $loader = $loader ? $loader : sub {
+        my $path = shift;
+        my $config = Config::Simple->new($path);
+        return $config->vars;
+    };
+
+    return($file, $dir, $loader);
 }
 
 sub _array {
@@ -127,6 +134,25 @@ Example:
 The parameters of configuration file in '/path/to/1' overwrite parameters of '/path/to/2'.
 And the parameters of '.rc1' overwrite parameters of '.rc2'.
 
+=head2 CUSTOM CONFIG LOADER
+
+In Default, C<Config::CmdRC> uses L<Config::Simple> for reading configuration file.
+
+Of course, you can use original configuration loader like below.
+
+    use Config::Any;
+
+    use Config::CmdRC (
+        file   => 'share/custom.yml',
+        loader => sub {
+            my $path = shift;
+            my $cfg = Config::Any->load_files({
+                files => [$path],
+                use_ext => 1,
+            });
+            return $cfg->[0]{$path};
+        },
+    );
 
 =head1 EXPORTS
 
