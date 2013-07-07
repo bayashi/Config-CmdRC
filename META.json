@@ -55,6 +55,7 @@
    },
    "version" : "0.03",
    "x_test_requires" : {
-      "Config::Any" : "0"
+      "Config::Any" : "0",
+      "Test::More" : "0.88"
    }
 }
