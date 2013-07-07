@@ -1,5 +1,8 @@
 Revision history for Perl extension Config::CmdRC
 
+0.03    Sun Jul  7 11:22:06 JST 2013
+        - NEW FEATURE: custom configuration loader
+
 0.02    Sat Jul  6 11:09:31 JST 2013
         - sorted directories for searching
 
