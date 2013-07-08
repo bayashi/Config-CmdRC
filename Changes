@@ -1,5 +1,8 @@
 Revision history for Perl extension Config::CmdRC
 
+0.05    Tue Jul  9 07:52:51 JST 2013
+        - fix bug: no need to check that the directory exists or not
+
 0.04    Mon Jul  8 20:53:19 JST 2013
         - fix dependency for test
 
