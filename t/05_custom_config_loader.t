@@ -2,17 +2,14 @@ use strict;
 use warnings;
 use Test::More;
 
-use Config::Any;
+use YAML;
 
 use Config::CmdRC (
     file   => 'share/custom.yml',
     loader => sub {
         my $path = shift;
-        my $cfg = Config::Any->load_files({
-            files   => [$path],
-            use_ext => 1,
-        });
-        return $cfg->[0]{$path};
+        my $cfg = YAML::LoadFile($path);
+        return $cfg;
     },
 );
 

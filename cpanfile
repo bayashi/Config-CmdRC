@@ -5,7 +5,7 @@ requires 'Hash::Merge';
 
 on 'test' => sub {
     requires 'Test::More', '0.88';
-    requires 'Config::Any';
+    requires 'YAML';
 };
 
 on 'configure' => sub {
