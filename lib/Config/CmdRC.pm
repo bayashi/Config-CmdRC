@@ -44,7 +44,7 @@ sub read {
         next unless $d;
         for my $f ( @{_array($file)} ) {
             my $path = File::Spec->catfile($d, $f);
-            if (-d $d && -e $path) {
+            if (-e $path) {
                 my $config = $loader->($path);
                 %hash = %{ merge(\%hash, $config) };
             }
