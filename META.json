@@ -38,7 +38,7 @@
    "provides" : {
       "Config::CmdRC" : {
          "file" : "lib/Config/CmdRC.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -53,9 +53,9 @@
          "url" : "http://github.com/bayashi/Config-CmdRC"
       }
    },
-   "version" : "0.03",
+   "version" : "0.04",
    "x_test_requires" : {
-      "Config::Any" : "0",
-      "Test::More" : "0.88"
+      "Test::More" : "0.88",
+      "YAML" : "0"
    }
 }
