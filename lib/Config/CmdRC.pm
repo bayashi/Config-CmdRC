@@ -11,6 +11,7 @@ our $RC;
 
 our $RC_DIRS = ($^O =~ m!Win32!) ? [
     # TODO: better windows support
+    '.',
     $ENV{CMDRC_DIR},
     $ENV{HOME},
 ] : [
