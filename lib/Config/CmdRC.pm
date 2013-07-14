@@ -40,6 +40,10 @@ sub read {
 
     my ($file, $dir, $loader) = _get_args(@_);
 
+    if ( my $user_rc_file = _get_user_rcfile() ) {
+        $file = $user_rc_file;
+    }
+
     my %hash;
     for my $d ( @{_array($dir)}, @{$RC_DIRS} ) {
         next unless $d;
@@ -53,6 +57,24 @@ sub read {
     }
 
     return $RC = \%hash;
+}
+
+sub _get_user_rcfile {
+    return unless @ARGV;
+
+    my $f = 0;
+    my @rcfiles;
+    for my $opt (@ARGV) {
+        if ($f && $opt) {
+            push @rcfiles, $opt;
+            $f = 0;
+        }
+        elsif ($opt && $opt eq '--rc') {
+            $f = 1;
+        }
+    }
+
+    return \@rcfiles if @rcfiles;
 }
 
 sub _get_args {
