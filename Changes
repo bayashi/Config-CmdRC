@@ -1,5 +1,9 @@
 Revision history for Perl extension Config::CmdRC
 
+0.06    Sun Jul 14 21:22:08 JST 2013
+        - fixed broken test on Win32
+        - NEW FEATURE: be able to read user specific rc file by --rc option
+
 0.05    Tue Jul  9 07:52:51 JST 2013
         - fix bug: no need to check that the directory exists or not
 
