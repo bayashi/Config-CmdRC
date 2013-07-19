@@ -1,6 +1,6 @@
 requires 'perl', '5.008005';
 requires 'File::Spec';
-requires 'Config::Simple';
+requires 'Config::Simple', '4.58';
 requires 'Hash::Merge';
 
 on 'test' => sub {
