@@ -5,7 +5,7 @@ use File::Spec;
 use Config::Simple;
 use Hash::Merge qw/merge/;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 our $RC;
 

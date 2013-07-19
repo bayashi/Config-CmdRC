@@ -1,5 +1,8 @@
 Revision history for Perl extension Config::CmdRC
 
+0.07    Fri Jul 19 23:28:17 JST 2013
+        - fixed dependent module's version
+
 0.06    Sun Jul 14 21:22:08 JST 2013
         - fixed broken test on Win32
         - NEW FEATURE: be able to read user specific rc file by --rc option

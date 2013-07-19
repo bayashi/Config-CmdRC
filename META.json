@@ -28,7 +28,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Config::Simple" : "0",
+            "Config::Simple" : "4.58",
             "File::Spec" : "0",
             "Hash::Merge" : "0",
             "perl" : "5.008005"
@@ -38,7 +38,7 @@
    "provides" : {
       "Config::CmdRC" : {
          "file" : "lib/Config/CmdRC.pm",
-         "version" : "0.06"
+         "version" : "0.07"
       }
    },
    "release_status" : "stable",
@@ -53,7 +53,7 @@
          "url" : "http://github.com/bayashi/Config-CmdRC"
       }
    },
-   "version" : "0.06",
+   "version" : "0.07",
    "x_test_requires" : {
       "Test::More" : "0.88",
       "YAML" : "0"
